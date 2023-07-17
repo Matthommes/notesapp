@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes Keeper</title>
+  </head>
+  <body>
+    <div class="taskbar">
+      <div class="taskbar-head">
+       <h2>Note:</h2>
+         <i class="close fas fa-x"></i>
+      </div>
+      <form action="">
+        <div class="taskbar-inputs">
+          <input type="text" name="title" id="title" placeholder="Title" maxlength="20"/>
+          <input type="text" name="desc" id="desc" placeholder="Description" maxlength="70" />
+          <textarea
+            name="content"
+            id="content"
+            cols="30"
+            rows="10"
+            placeholder="Content"
+          ></textarea>
+        </div>
+        <div class="task-btns">
+          <button class="submit-btn" type="submit">Add</button>
+        </div>
+      </form>
+    </div>
+    <div class="sidebar">
+        <div>
+        
+             <h1>Notes</h1>
+             <i class="add fas fa-plus"></i>
+     
+           <div class="form">
+            <i class="fas fa-magnifying-glass"></i>
+            <input
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Search"
+            />
+          </div>
+          <div class="heading">
+           
+          </div>
+    <!-- <div class="add__container">
+    
+         <div class="taskbar-inputs">
+          <input type="text" name="title" id="title" placeholder="Title" maxlength="20"/>
+          <input type="text" name="desc" id="desc" placeholder="Description" maxlength="70" />
+          <textarea
+            name="content"
+            id="content"
+            cols="30"
+            rows="10"
+            placeholder="content"
+          ></textarea>
+          <button>Add</button>
+        </div>
+    </div> -->
+    <ul id="notes-container"></ul>
+
+  
+    
+
+    <script src="index.js"></script>
+  </body>
+</html>
+
