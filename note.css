@@ -19,11 +19,7 @@ body {
     #eaecc6,
     #2bc0e4
   ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #eaecc6,
-    #2bc0e4
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #eaecc6, #2bc0e4);
 }
 
 .container {
@@ -31,6 +27,7 @@ body {
   border-radius: 1rem;
   box-shadow: 4px 4x 30px #000;
   width: 50rem;
+  height: 40%;
   margin: auto;
   background: #2bc0e4; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -45,6 +42,7 @@ body {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   text-align: left;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 .container h1 {
@@ -73,7 +71,9 @@ body {
 }
 
 .container .btn {
-  margin-top: 5rem;
+  position: absolute;
+  left: 3rem;
+  bottom: 2rem;
   padding: 0.7rem 1rem;
   width: 10rem;
   border: 1px solid #ccc;
@@ -82,10 +82,11 @@ body {
   cursor: pointer;
   background: #072a22;
   color: #fff;
-  margin-right: 10rem;
 }
 .container button i {
-  margin-top: 5rem;
+  position: absolute;
+  right: 3rem;
+  bottom: 2rem;
   padding: 0.7rem 1rem;
   color: #fbfbfb;
   background: #000;
@@ -103,15 +104,25 @@ body {
   cursor: pointer;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .container {
     margin: auto;
-    /* padding: 1rem; */
-    width: 70%;
-    padding: 3rem;
+    padding: 1rem;
+    width: 100%;
     border-radius: 1rem;
-    box-shadow: 4px 4x 30px #000;
     text-align: left;
     background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .container .btn {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+  }
+  .container button i {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
   }
 }

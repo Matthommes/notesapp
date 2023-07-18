@@ -57,7 +57,9 @@ button.addEventListener("click", (e) => {
   }
 
   createNote();
-  taskContainer.style.display = "none";
+  if (window.innerWidth <= 767) {
+    taskContainer.style.display = "none";
+  }
 });
 window.addEventListener("DOMContentLoaded", (e) => {
   const storedNotes = localStorage.getItem("notes");

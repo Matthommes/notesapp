@@ -82,7 +82,7 @@ ul {
 }
 
 .submit-btn {
-  background: #85f1ff;
+  background: #01c0da;
   width: 100%;
   color: #fff;
   cursor: pointer;
@@ -137,20 +137,19 @@ ul {
 ul#notes-container li {
   padding: 1rem;
   margin: 1rem;
-  width: 22rem;
-  height: 22rem;
+  width: 20rem;
+  height: 12rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
-  border-top-right-radius: 2rem;
   cursor: pointer;
-  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.02);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   background-color: rgba(255, 255, 255, 0.3);
   transition: box-shadow 0.3s ease;
   position: relative;
 }
 
 ul#notes-container li:hover {
-  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.09);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   /* border-radius: 1.5rem; */
 }
 
@@ -163,6 +162,9 @@ ul#notes-container li h6 {
   font-weight: 300;
   padding: 0.5rem;
   color: #222;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 ul#notes-container li div {
@@ -174,8 +176,6 @@ ul#notes-container li div {
   bottom: 0;
   left: 0;
   width: 100%;
-  /* border-bottom-left-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem; */
 }
 
 ul#notes-container li div button {
@@ -198,41 +198,6 @@ ul#notes-container li div i {
 ul#notes-container li div i:hover {
   background: #deedea;
   color: #000;
-  cursor: pointer;
-}
-
-.add__container {
-  width: 90%;
-  margin: auto;
-  padding: 2rem 1rem;
-  background: #fff;
-  border-radius: 4px;
-  height: 70vh;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05);
-  z-index: 999;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
-}
-.add__container i {
-  position: absolute;
-  top: -1.5rem;
-  right: 0;
-}
-.add__container .taskbar-inputs {
-  margin-top: 2rem;
-}
-
-.add__container button {
-  padding: 0.8rem 0.8rem;
-  font-weight: 800;
-  border: none;
-  border-radius: 4px;
-  outline: none;
-  color: #fff;
-  background: #85f1ff;
   cursor: pointer;
 }
 
