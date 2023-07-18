@@ -89,6 +89,11 @@ ul {
   font-weight: 700;
 }
 
+.submit-btn:disabled{
+   background: #7debf9;
+   cursor: not-allowed;
+}
+
 .sidebar {
   width: 70%;
   border-radius: 1rem;
@@ -136,7 +141,7 @@ ul {
 }
 ul#notes-container li {
   padding: 1rem;
-  margin: 1rem auto;
+  margin: 1rem;
   width: 20rem;
   height: 12rem;
   border: 1px solid #ccc;

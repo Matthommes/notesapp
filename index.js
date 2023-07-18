@@ -6,10 +6,35 @@ const taskContainer = document.querySelector(".taskbar");
 const button = document.querySelector("button");
 const editButton = document.querySelectorAll(".edit");
 const notesContainer = document.querySelector("#notes-container");
+const noteList = document.querySelectorAll("#notes-container .note");
 const xmark = document.querySelector(".close");
 const add = document.querySelector(".add");
+const search = document.querySelector("#search");
 
 let notes = [];
+
+search.addEventListener("search", handleSearch);
+
+function handleSearch() {
+  const searchTerm = search.value.toLowerCase();
+  const noteElements = document.querySelectorAll("#notes-container .note");
+
+  noteElements.forEach((noteElement) => {
+    const noteTitle = noteElement.querySelector("h3").textContent.toLowerCase();
+    const noteDescription = noteElement
+      .querySelector("h6")
+      .textContent.toLowerCase();
+
+    if (
+      noteTitle.includes(searchTerm) ||
+      noteDescription.includes(searchTerm)
+    ) {
+      noteElement.style.display = "block";
+    } else {
+      noteElement.style.display = "none";
+    }
+  });
+}
 
 function noteId() {
   return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
@@ -25,12 +50,22 @@ xmark.addEventListener("click", (e) => {
 add.addEventListener("click", (e) => {
   taskContainer.style.display = "block";
 });
+
+function handleInputChange() {
+  const title = titleInput.value.trim();
+  const description = descInput.value.trim();
+  const content = contentInput.value.trim();
+  button.disabled = !(title && description && content);
+}
+titleInput.addEventListener("input", handleInputChange);
+descInput.addEventListener("input", handleInputChange);
+contentInput.addEventListener("input", handleInputChange);
 button.addEventListener("click", (e) => {
   e.preventDefault();
 
-  const title = titleInput.value;
-  const description = descInput.value;
-  const content = contentInput.value;
+  const title = titleInput.value.trim();
+  const description = descInput.value.trim();
+  const content = contentInput.value.trim();
 
   if (!title || !description || !content) {
     console.log("Please fill in all the inputs");
