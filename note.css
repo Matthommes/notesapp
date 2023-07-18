@@ -144,7 +144,6 @@ body {
   .container h5 {
     font-weight: 400;
     font-size: 1.2rem;
-    margin: 0 0 2rem;
   }
 
   .container p {
@@ -152,7 +151,7 @@ body {
     font-weight: 300;
     margin: 1rem 0;
     height: 35vh;
-
+    padding-bottom: 2rem;
     overflow-y: auto;
     overflow-wrap: break-word;
   }
