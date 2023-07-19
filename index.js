@@ -95,6 +95,7 @@ button.addEventListener("click", (e) => {
   if (window.innerWidth <= 767) {
     taskContainer.style.display = "none";
   }
+  button.disabled = true;
 });
 window.addEventListener("DOMContentLoaded", (e) => {
   const storedNotes = localStorage.getItem("notes");
