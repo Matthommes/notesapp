@@ -13,7 +13,7 @@ const search = document.querySelector("#search");
 
 let notes = [];
 
-search.addEventListener("search", handleSearch);
+search.addEventListener("input", handleSearch);
 
 function handleSearch() {
   const searchTerm = search.value.toLowerCase();
