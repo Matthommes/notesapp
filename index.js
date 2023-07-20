@@ -10,9 +10,24 @@ const noteList = document.querySelectorAll("#notes-container .note");
 const xmark = document.querySelector(".close");
 const add = document.querySelector(".add");
 const search = document.querySelector("#search");
+const toggle = document.querySelector(".toggle");
+const body = document.querySelector("body");
+
+
+
 
 let notes = [];
 
+
+
+toggle.onclick = (e) => {
+  const isDark = toggle.textContent === "Dark" ? true : false;
+  !isDark ? body.classList.remove("dark") : body.classList.add("dark")
+    toggle.textContent === "Light"
+      ? (toggle.textContent = "Dark")
+      : toggle.textContent = "Light";
+  
+}
 search.addEventListener("input", handleSearch);
 
 function handleSearch() {
@@ -26,8 +41,8 @@ function handleSearch() {
       .textContent.toLowerCase();
 
     if (
-      noteTitle.includes(searchTerm) ||
-      noteDescription.includes(searchTerm)
+      noteTitle.includes(searchTerm) 
+      // noteDescription.includes(searchTerm)
     ) {
       noteElement.style.display = "block";
     } else {
