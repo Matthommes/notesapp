@@ -22,7 +22,7 @@ toggle.src = newSrc;
 
 function toggleDarkMode() {
   const isDarkMode = body.classList.toggle("dark");
-  const newSrc = isDarkMode ? "/images/bulb-on.svg" : "/images/bulb-off.svg";
+  const newSrc = isDarkMode ? "./images/bulb-on.svg" : "./images/bulb-off.svg";
   toggle.src = newSrc;
   localStorage.setItem("darkMode", isDarkMode ? "true" : "false");
 
