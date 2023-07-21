@@ -12,15 +12,30 @@
     <title>Notes Keeper</title>
   </head>
   <body>
+    <!-- Taskbar Section -->
     <div class="taskbar">
+      <!-- Taskbar Header -->
       <div class="taskbar-head">
-       <h2>Note:</h2>
-         <i class="close fas fa-x"></i>
+        <h2>Note:</h2>
+        <i class="fas fa-times" onclick="closeTaskBar()"></i>
       </div>
       <form action="">
+        <!-- Taskbar Inputs -->
         <div class="taskbar-inputs">
-          <input type="text" name="title" id="title" placeholder="Title" maxlength="25"/>
-          <input type="text" name="desc" id="desc" placeholder="Description" maxlength="70" />
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Title"
+            maxlength="20"
+          />
+          <input
+            type="text"
+            name="desc"
+            id="desc"
+            placeholder="Description"
+            maxlength="70"
+          />
           <textarea
             name="content"
             id="content"
@@ -29,36 +44,40 @@
             placeholder="Content"
           ></textarea>
         </div>
+        <!-- Taskbar Buttons -->
         <div class="task-btns">
           <button class="submit-btn" type="submit" disabled>Add</button>
         </div>
       </form>
     </div>
-    <div class="sidebar">
-        <div>
-        
-             <h1>Notes</h1>
-             <button class="toggle">Dark</button>
-             <i class="add fas fa-plus"></i>
-     
-           <div class="form">
-            <i class="fas fa-magnifying-glass"></i>
-            <input
-              type="search"
-              name="search"
-              id="search"
-              placeholder="Search"
-            />
-          </div>
-          <div class="heading">
-           
-          </div>
-    <ul id="notes-container"></ul>
 
-  
-    
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+      <div>
+        <!-- Sidebar Top Section -->
+        <div class="top">
+          <!-- Dark Mode Toggle -->
+          <img
+            src=""
+            alt="Toggle Dark Mode"
+            class="toggle"
+            onclick="toggleDarkMode()"
+          />
+          <h1>Notes</h1>
+          <i class="add fas fa-plus" onclick="showTaskbar()"></i>
+        </div>
+
+        <!-- Search Input -->
+        <div class="form">
+          <i class="fas fa-search"></i>
+          <input type="search" name="search" id="search" placeholder="Search" />
+        </div>
+      </div>
+
+      <!-- Notes List Container -->
+      <ul id="notes-container"></ul>
+    </div>
 
     <script src="index.js"></script>
   </body>
 </html>
-

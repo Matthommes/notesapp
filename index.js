@@ -7,27 +7,67 @@ const button = document.querySelector("button");
 const editButton = document.querySelectorAll(".edit");
 const notesContainer = document.querySelector("#notes-container");
 const noteList = document.querySelectorAll("#notes-container .note");
-const xmark = document.querySelector(".close");
-const add = document.querySelector(".add");
 const search = document.querySelector("#search");
-const toggle = document.querySelector(".toggle");
+const toggle = document.querySelector(".top img");
 const body = document.querySelector("body");
-
-
-
 
 let notes = [];
 
+const newSrc = body.classList.toggle("dark")
+  ? "/images/bulb-on.svg"
+  : "/images/bulb-off.svg";
 
+toggle.src = newSrc;
+// Save the user's preference in localStorage
 
-toggle.onclick = (e) => {
-  const isDark = toggle.textContent === "Dark" ? true : false;
-  !isDark ? body.classList.remove("dark") : body.classList.add("dark")
-    toggle.textContent === "Light"
-      ? (toggle.textContent = "Dark")
-      : toggle.textContent = "Light";
-  
+function toggleDarkMode() {
+  const isDarkMode = body.classList.toggle("dark");
+  const newSrc = isDarkMode ? "/images/bulb-on.svg" : "/images/bulb-off.svg";
+  toggle.src = newSrc;
+  localStorage.setItem("darkMode", isDarkMode ? "true" : "false");
+
+  const rootStyles = document.documentElement.style;
+  if (isDarkMode) {
+
+    rootStyles.setProperty(
+      "--background-color",
+      "var(--dark-background-color)"
+    );
+    rootStyles.setProperty("--text-color", "var(--dark-text-color)");
+    rootStyles.setProperty(
+      "--input-background",
+      "var(--dark-input-background)"
+    );
+    rootStyles.setProperty("--input-text", "var(--dark-input-text)");
+    rootStyles.setProperty("--note-background", "var(--dark-note-background)");
+    rootStyles.setProperty("--note-shadow", "var(--dark-note-shadow)");
+  } else {
+    
+    rootStyles.setProperty("--background-color", "var(--light-background-color)");
+    rootStyles.setProperty("--text-color", "var(--light-text-color)");
+    rootStyles.setProperty("--input-background", "var(--light-input-background)");
+    rootStyles.setProperty("--input-text", "var(--light-input-text)");
+    rootStyles.setProperty("--note-background", "var(--light-note-background)");
+    rootStyles.setProperty("--note-shadow", "var(--light-note-shadow)");
+  }
 }
+
+function showTaskbar() {
+  taskContainer.style.display = "block";
+}
+// Check if the user has a dark mode preference and set it
+
+const darkModePreference = localStorage.getItem("darkMode");
+if (darkModePreference === "true") {
+  body.classList.add("dark");
+  const newSrc = "images/bulb-on.svg";
+  toggle.src = newSrc;
+} else {
+  body.classList.remove("dark");
+  const newSrc = "images/bulb-off.svg";
+  toggle.src = newSrc;
+}
+
 search.addEventListener("input", handleSearch);
 
 function handleSearch() {
@@ -41,7 +81,7 @@ function handleSearch() {
       .textContent.toLowerCase();
 
     if (
-      noteTitle.includes(searchTerm) 
+      noteTitle.includes(searchTerm)
       // noteDescription.includes(searchTerm)
     ) {
       noteElement.style.display = "block";
@@ -58,13 +98,9 @@ function noteId() {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
-xmark.addEventListener("click", (e) => {
+function closeTaskBar() {
   taskContainer.style.display = "none";
-});
-
-add.addEventListener("click", (e) => {
-  taskContainer.style.display = "block";
-});
+}
 
 function handleInputChange() {
   const title = titleInput.value.trim();
@@ -151,7 +187,7 @@ function renderNotes() {
     const noteItem = document.createElement("li");
     noteItem.classList.add("note");
     noteItem.innerHTML = `
-      <h3>${note.title}</h3>
+      <h3>${note.title} </h3>
       <h6>${note.description}</h6>
      <div> <p>${note.date}</p>
      <button class="delete">
