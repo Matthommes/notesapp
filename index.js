@@ -13,7 +13,8 @@ const body = document.querySelector("body");
 
 let notes = [];
 
-const newSrc = body.classList.toggle("dark")
+
+const newSrc = document.body.classList.contains("dark") 
   ? "/images/bulb-on.svg"
   : "/images/bulb-off.svg";
 
@@ -21,7 +22,7 @@ toggle.src = newSrc;
 // Save the user's preference in localStorage
 
 function toggleDarkMode() {
-  const isDarkMode = body.classList.toggle("dark");
+  const isDarkMode = document.body.classList.toggle("dark"); ;
   const newSrc = isDarkMode ? "./images/bulb-on.svg" : "./images/bulb-off.svg";
   toggle.src = newSrc;
   localStorage.setItem("darkMode", isDarkMode ? "true" : "false");
@@ -51,6 +52,23 @@ function toggleDarkMode() {
     rootStyles.setProperty("--note-shadow", "var(--light-note-shadow)");
   }
 }
+function checkDarkModePreference(event) {
+  const isDarkModePreferred = event.matches;
+  console.log(isDarkModePreferred);
+  if (isDarkModePreferred) {
+    body.classList.add("dark");
+    toggle.src = "./images/bulb-on.svg";
+  } else {
+    body.classList.remove("dark");
+    toggle.src = "./images/bulb-off.svg";
+  }
+}
+
+// Set the initial state of the bulb based on media preference
+const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+console.log(darkModeMediaQuery);
+checkDarkModePreference(darkModeMediaQuery);
+darkModeMediaQuery.addEventListener("DomContentLoad", checkDarkModePreference);
 
 function showTaskbar() {
   taskContainer.style.display = "block";
@@ -60,11 +78,11 @@ function showTaskbar() {
 const darkModePreference = localStorage.getItem("darkMode");
 if (darkModePreference === "true") {
   body.classList.add("dark");
-  const newSrc = "images/bulb-on.svg";
+  const newSrc = "./images/bulb-on.svg";
   toggle.src = newSrc;
 } else {
   body.classList.remove("dark");
-  const newSrc = "images/bulb-off.svg";
+  const newSrc = "./images/bulb-off.svg";
   toggle.src = newSrc;
 }
 
